@@ -1,12 +1,15 @@
+// app.controller.ts
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  @Get('top')
+  getTop() {
+    return { message: 'This is the top page' };
+  }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('about')
+  getAbout() {
+    return { message: 'This is the about page' };
   }
 }
